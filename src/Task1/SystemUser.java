@@ -3,8 +3,20 @@ package Task1;
 import java.util.Objects;
 
 public class SystemUser {
-    public String name;
-    public int age;
+    private final String name;
+    private int age;
+
+    public String getName() {
+        return name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
 
     public SystemUser(int age, String name) {
         this.age = age;
@@ -21,12 +33,14 @@ public class SystemUser {
         if (obj == this) {
             return true;
         }
-        if (!(obj instanceof SystemUser)) {
+
+        if (!(obj instanceof SystemUser other)) {
             return false;
         }
-        SystemUser other = (SystemUser) obj;
+
         boolean equals = (this.name == null && other.name == null)
                 || (this.name != null && this.name.equals(other.name));
+
         return this.age == other.age && equals;
     }
 
